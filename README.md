@@ -57,17 +57,22 @@ hint:   git branch -m <name>
 Initialized empty Git repository in /home/kali/HECCYLLIujTbmy/workspace/projects/lab02/.git/
 ```
 
-
+```sh
 $ git config --global user.name ${GITHUB_USERNAME}
 $ git config --global user.email ${GITHUB_EMAIL}
 # check your git global settings
 $ git config -e --global
 $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab02.git
+```
+
+```sh
 $ git pull origin master
 Username for 'https://github.com': HECCYLLIujTbmy
 Password for 'https://HECCYLLIujTbmy@github.com': 
 remote: Repository not found.
 fatal: repository 'https://github.com/HECCYLLIujTbmy/lab02.git/' not found P.S забыл создать репозиторий
+```
+```sh
 $ touch README.md
 $ git status
 
@@ -80,7 +85,8 @@ Untracked files:
         README.md
 
 nothing added to commit but untracked files present (use "git add" to track)
-
+```
+```sh
 $ git add README.md
 $ git commit -m"added README.md"
 
