@@ -485,6 +485,17 @@ Date:   Sun Apr 16 00:38:20 2023 -0400
     added README.md
 ```                                                         
 12. Удалите локальную ветку `patch1`.
+```sh
+git checkout master
+Switched to branch 'master'
+
+git branch -d patch1
+error: The branch 'patch1' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D patch1'
+
+git branch -D patch1
+Deleted branch patch1 (was a4d7996).
+```
 
 ### Part III
 
