@@ -378,8 +378,37 @@ To https://github.com/HECCYLLIujTbmy/lab02dz.git
 
 **Note:** *Работать продолжайте с теми же репоззиториями, что и в первой части задания.*
 1. В локальной копии репозитория создайте локальную ветку `patch1`.
+```sh
+git checkout -b patch1  
+Switched to a new branch 'patch1'
+```
 2. Внесите изменения в ветке `patch1` по исправлению кода и избавления от `using namespace std;`.
+```sh
+edit hello_world.cpp
+```
 3. **commit**, **push** локальную ветку в удалённый репозиторий.
+```sh
+git commit -m "fixedl hello_world.cpp"
+On branch patch1
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        new_hello_world.cpp
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+```sh
+git push origin patch1                
+Username for 'https://github.com': HECCYLLIujTbmy
+Password for 'https://HECCYLLIujTbmy@github.com': 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'patch1' on GitHub by visiting:
+remote:      https://github.com/HECCYLLIujTbmy/lab02dz/pull/new/patch1
+remote: 
+To https://github.com/HECCYLLIujTbmy/lab02dz.git
+ * [new branch]      patch1 -> patch1
+ ```
+ 
 4. Проверьте, что ветка `patch1` доступна в удалёный репозитории.
 5. Создайте pull-request `patch1 -> master`.
 6. В локальной копии в ветке `patch1` добавьте в исходный код комментарии.
