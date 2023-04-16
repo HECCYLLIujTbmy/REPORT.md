@@ -413,10 +413,77 @@ To https://github.com/HECCYLLIujTbmy/lab02dz.git
 5. Создайте pull-request `patch1 -> master`.
 6. В локальной копии в ветке `patch1` добавьте в исходный код комментарии.
 7. **commit**, **push**.
+```sh
+git commit -m "hello_world.cpp and commentaries"
+[patch1 a4d7996] hello_world.cpp and commentaries
+ 2 files changed, 11 insertions(+), 1 deletion(-)
+ create mode 100644 sources/new_hello_world.cpp
+ ```
+
+```sh
+git push origin patch1                          
+Username for 'https://github.com': HECCYLLIujTbmy
+Password for 'https://HECCYLLIujTbmy@github.com': 
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 584 bytes | 584.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/HECCYLLIujTbmy/lab02dz.git
+   22a49b9..a4d7996  patch1 -> patch1
+```
+
 8. Проверьте, что новые изменения есть в созданном на **шаге 5** pull-request
 9. В удалённый репозитории выполните  слияние PR `patch1 -> master` и удалите ветку `patch1` в удаленном репозитории.
 10. Локально выполните **pull**.
+```sh
+git pull            
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> patch1
+```
+
 11. С помощью команды **git log** просмотрите историю в локальной версии ветки `master`.
+```sh
+git log 
+commit a4d7996882963e5d8c880058edda785df4d18a7d (HEAD -> patch1, origin/patch1)
+Author: HECCYLLIujTbmy <sokolovskijvladislav23@gmail.com>
+Date:   Sun Apr 16 04:04:12 2023 -0400
+
+    hello_world.cpp and commentaries
+
+commit 22a49b9f6d776659f9ef44df5ce8c8b5b4d51f18 (origin/patch2, a-)
+Author: HECCYLLIujTbmy <sokolovskijvladislav23@gmail.com>
+Date:   Sun Apr 16 01:46:17 2023 -0400
+
+    fixed hello_world.cpp
+
+commit 4c756dc78fba4cede2d89a2f05ed6762117771fb (origin/master, master)
+Author: HECCYLLIujTbmy <sokolovskijvladislav23@gmail.com>
+Date:   Sun Apr 16 01:39:25 2023 -0400
+
+    new hello_world.cpp
+
+commit 681df98b838618eec6efc6fd3d7395cf72f7ea1b
+Author: HECCYLLIujTbmy <sokolovskijvladislav23@gmail.com>
+Date:   Sun Apr 16 01:07:55 2023 -0400
+
+    added hello_world.cpp
+
+commit 84d0adcfbb5090d0dff7ca264d89c56a5a6425e9
+Author: HECCYLLIujTbmy <sokolovskijvladislav23@gmail.com>
+Date:   Sun Apr 16 00:38:20 2023 -0400
+
+    added README.md
+```                                                         
 12. Удалите локальную ветку `patch1`.
 
 ### Part III
