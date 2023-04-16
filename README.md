@@ -501,12 +501,109 @@ Deleted branch patch1 (was a4d7996).
 
 **Note:** *Работать продолжайте с теми же репоззиториями, что и в первой части задания.*
 1. Создайте новую локальную ветку `patch2`.
+```sh
+git checkout -b patch2
+Switched to a new branch 'patch2'
+```
+
 2. Измените *code style* с помощью утилиты [**clang-format**](http://clang.llvm.org/docs/ClangFormat.html). Например, используя опцию `-style=Mozilla`.
+```sh
+clang-format -i --style=Mozilla hello_world.cpp
+```
 3. **commit**, **push**, создайте pull-request `patch2 -> master`.
+```sh
+git status            
+On branch patch2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   sources/hello_world.cpp
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        sources/.hello_world.cpp.swo
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+```sh
+**git add sources/hello_world.cpp**
+
+**git commit -m "new-style"**                     
+[patch2 eec544e] new-style
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+ 
+ ```sh
+ it push origin patch2
+Username for 'https://github.com': HECCYLLIujTbmy
+Password for 'https://HECCYLLIujTbmy@github.com': 
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 478 bytes | 478.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'patch2' on GitHub by visiting:
+remote:      https://github.com/HECCYLLIujTbmy/lab02dz/pull/new/patch2
+remote: 
+To https://github.com/HECCYLLIujTbmy/lab02dz.git
+ * [new branch]      patch2 -> patch2
+ ```
+
 4. В ветке **master** в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык.
+```sh
+**edit sources/hello_world.cpp**
+
+**git commit -m "new comment"**
+On branch patch2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   sources/hello_world.cpp
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        sources/.hello_world.cpp.swo
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+**git add .**
+
+**git commit -m "new comment"**
+[patch2 baa2cbf] new comment
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+ create mode 100644 sources/.hello_world.cpp.swo
+ 
+ **git push origin patch2**     
+Username for 'https://github.com': HECCYLLIujTbmy
+Password for 'https://HECCYLLIujTbmy@github.com': 
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 778 bytes | 778.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/HECCYLLIujTbmy/lab02dz.git
+   eec544e..baa2cbf  patch2 -> patch2
+
 5. Убедитесь, что в pull-request появились *конфликтны*.
-6. Для этого локально выполните **pull** + **rebase** (точную последовательность команд, следует узнать самостоятельно). **Исправьте конфликты**.
+6. Для этого локально выполните **pull** + **rebase** (точную последовательность команд, следует узнать самостоятельно). 
+**Исправьте конфликты**.
+```sh
+git pull --rebase origin patch2
+From https://github.com/HECCYLLIujTbmy/lab02dz
+ * branch            patch2     -> FETCH_HEAD
+Already up to date.
+```
 7. Сделайте *force push* в ветку `patch2`
+```sh
+**git push origin patch2 --force**
+Username for 'https://github.com': HECCYLLIujTbmy
+Password for 'https://HECCYLLIujTbmy@github.com': 
+Everything up-to-date
+```
 8. Убедитель, что в pull-request пропали конфликтны. 
 9. Вмержите pull-request `patch2 -> master`.
 
