@@ -254,13 +254,124 @@ Error: Got Net::HTTPUnauthorized from gist: {"message":"Requires authentication"
 ### Part I
 
 1. Создайте пустой репозиторий на сервисе github.com (или gitlab.com, или bitbucket.com).
-2. Выполните инструкцию по созданию первого коммита на странице репозитория, созданного на предыдещем шаге.
+2. Выполните инструкцию по созданию первого коммита на странице репозитория, созданного на предыдещем шаге
+```sh
+git config --global hub.protocol https        
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace]
+└─$ mkdir projects/lab02dz && cd projects/lab02dz
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace/projects/lab02dz]
+└─$ git init                              
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint:   git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/kali/HECCYLLIujTbmy/workspace/projects/lab02dz/.git/
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace/projects/lab02dz]
+└─$ git config --global user.name ${GITHUB_USERNAME}
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace/projects/lab02dz]
+└─$ git config --global user.email ${GITHUB_EMAIL}
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace/projects/lab02dz]
+└─$ git config -e --global
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace/projects/lab02dz]
+└─$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab02dz.git
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace/projects/lab02dz]
+└─$ git pull origin master                                                 
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 218 bytes | 218.00 KiB/s, done.
+From https://github.com/HECCYLLIujTbmy/lab02dz
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> origin/master
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace/projects/lab02dz]
+└─$ touch README.md
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace/projects/lab02dz]
+└─$ git status
+On branch master
+nothing to commit, working tree clean
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace/projects/lab02dz]
+└─$ git add README.md
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace/projects/lab02dz]
+└─$ git commit -m "added README.md"
+On branch master
+nothing to commit, working tree clean
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace/projects/lab02dz]
+└─$ git push origin master         
+Username for 'https://github.com': HECCYLLIujTbmy
+Password for 'https://HECCYLLIujTbmy@github.com': 
+Everything up-to-date
+                                                                                                                                                    
+┌──(kali㉿kali)-[~/HECCYLLIujTbmy/workspace/projects/lab02dz]
+└─$ mkdir sources
+```
+
 3. Создайте файл `hello_world.cpp` в локальной копии репозитория (который должен был появиться на шаге 2). Реализуйте программу **Hello world** на языке C++ используя плохой стиль кода. Например, после заголовочных файлов вставьте строку `using namespace std;`.
+
+```sh
+cat > sources/hello_world.cpp<<EOF 
+heredoc> #include <iostream>
+heredoc> using namespace std;
+heredoc> int main()
+heredoc> {
+heredoc> cout<<"TTpuBeT Mup";     
+heredoc> }
+heredoc> EOF  
+```
 4. Добавьте этот файл в локальную копию репозитория.
+```sh
+git add sources/hello_world.cpp
+```
 5. Закоммитьте изменения с *осмысленным* сообщением.
+```sh
+it commit -m "added hello_world.cpp"
+[master 681df98] added hello_world.cpp
+ 1 file changed, 6 insertions(+)
+ create mode 100644 sources/hello_world.cpp
+ ```
 6. Изменитьте исходный код так, чтобы программа через стандартный поток ввода запрашивалось имя пользователя. А в стандартный поток вывода печаталось сообщение `Hello world from @name`, где `@name` имя пользователя.
+
+```sh
+edit sources/hello_world.cpp
+```
 7. Закоммитьте новую версию программы. Почему не надо добавлять файл повторно `git add`?
+```sh
+git commit -m "new hello_world.cpp"
+[master 4c756dc] new hello_world.cpp
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+```
 8. Запуште изменения в удалёный репозиторий.
+
+```sh
+git push origin master
+Username for 'https://github.com': HECCYLLIujTbmy
+Password for 'https://HECCYLLIujTbmy@github.com': 
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 485 bytes | 485.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/HECCYLLIujTbmy/lab02dz.git
+   681df98..4c756dc  master -> master
+```
 9. Проверьте, что история коммитов доступна в удалёный репозитории.
 
 ### Part II
